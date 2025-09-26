@@ -9,23 +9,16 @@ import Screw from "./Screw";
 import Socket from "./Socket";
 import Cbhousing from "./Cbhousing";
 import Cbassembly from "./Cbassembly";
+import { PartProvider } from "../../../context_api/PartContext";
 
 //endpoints
 import { GET_ALL_PARTS } from "../../../global_endpoints";
-
-//CONTEXT API
-import PartContext from "../../../context_api/PartContext";
 
 export default function Caseback() {
   const [screwData, setScrewData] = useState({});
   const [socketData, setSocketData] = useState({});
   const [housingData, setHousingData] = useState({});
   const [casebackData, setCasebackData] = useState({});
-
-  const [screwUsed, setScrewUsed] = useState(false);
-  const [socketUsed, setSocketUsed] = useState(false);
-  const [cbHousingUsed, setCbHousingUsed] = useState(false);
-  const [casebackFinished, setCasebackFinished] = useState(false);
 
   useEffect(() => {
     async function getPartData() {
@@ -93,18 +86,7 @@ export default function Caseback() {
     <Paper className={styles.paperStyle} elevation={6} square={false}>
       <Box>
         <Grid container direction="row" columns={12.02} spacing={0}>
-          <PartContext.Provider
-            value={{
-              screwUsed,
-              setScrewUsed,
-              socketUsed,
-              setSocketUsed,
-              cbHousingUsed,
-              setCbHousingUsed,
-              casebackFinished,
-              setCasebackFinished,
-            }}
-          >
+          <PartProvider>
             {/* SCREW */}
             <Screw screwData={screwData} setScrewData={setScrewData} />
 
@@ -128,7 +110,7 @@ export default function Caseback() {
               casebackData={casebackData}
               setCasebackData={setCasebackData}
             />
-          </PartContext.Provider>
+          </PartProvider>
         </Grid>
       </Box>
     </Paper>

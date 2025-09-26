@@ -9,7 +9,7 @@ import styles from "./caseback.module.css";
 import { UPDATE_PART_QUANTITY } from "../../../global_endpoints";
 
 //PART CONTEXT
-import PartContext from "../../../context_api/PartContext";
+import { PartContext } from "../../../context_api/PartContext";
 
 export default function Cbassembly({ casebackData, setCasebackData }) {
   const [quantityChange, setQuantityChange] = useState(false);

@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { UPDATE_PART_QUANTITY } from "../../../global_endpoints";
 
 //PART CONTEXT
-import PartContext from "../../../context_api/PartContext";
+import { PartContext } from "../../../context_api/PartContext";
 
 export default function Screw({ screwData, setScrewData }) {
   const [quantityChange, setQuantityChange] = useState(false);

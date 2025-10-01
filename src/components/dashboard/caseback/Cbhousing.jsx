@@ -15,7 +15,8 @@ export default function Cbhousing({ housingData, setHousingData }) {
   const [quantityChange, setQuantityChange] = useState(false);
 
   //PART CONTEXT
-  const { screwUsed, socketUsed, setCbHousingUsed } = useContext(PartContext);
+  const { screwUsed, socketUsed, cbHousingUsed, setCbHousingUsed } =
+    useContext(PartContext);
 
   useEffect(() => {
     if (!quantityChange) return; // Prevent on initial render
@@ -74,7 +75,7 @@ export default function Cbhousing({ housingData, setHousingData }) {
             pt: 22,
           }}
         >
-          {screwUsed && socketUsed ? (
+          {screwUsed && socketUsed && !cbHousingUsed ? (
             <Button onClick={handleUse} variant="contained" color="success">
               USE
             </Button>

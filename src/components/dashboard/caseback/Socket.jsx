@@ -75,7 +75,7 @@ export default function Socket({ socketData, setSocketData }) {
             pt: 22,
           }}
         >
-          {screwUsed ? (
+          {screwUsed && !socketUsed ? (
             <Button onClick={handleUse} variant="contained" color="success">
               USE
             </Button>

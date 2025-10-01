@@ -58,7 +58,7 @@ export default function Cbassembly({ casebackData, setCasebackData }) {
     setScrewUsed(false);
     setSocketUsed(false);
     setCbHousingUsed(false);
-    setCasebackFinished(true); //might need to fix
+    setCasebackFinished(true);
   }
 
   return (

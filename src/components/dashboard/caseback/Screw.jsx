@@ -15,7 +15,7 @@ export default function Screw({ screwData, setScrewData }) {
   const [quantityChange, setQuantityChange] = useState(false);
 
   //destructure part context to use specific state
-  const { setScrewUsed } = useContext(PartContext);
+  const { screwUsed, setScrewUsed } = useContext(PartContext);
 
   useEffect(() => {
     if (!quantityChange) return; // Prevent on initial render
@@ -74,9 +74,15 @@ export default function Screw({ screwData, setScrewData }) {
             pt: 22,
           }}
         >
-          <Button onClick={handleUse} variant="contained" color="success">
-            USE
-          </Button>
+          {!screwUsed ? (
+            <Button onClick={handleUse} variant="contained" color="success">
+              USE
+            </Button>
+          ) : (
+            <Button variant="contained" color="success" disabled>
+              USE
+            </Button>
+          )}
         </Stack>
       </Grid>
     </>
